@@ -36,6 +36,7 @@ class AccountVk():
 
 
 def main():
+    print("Начало работы...")
     account = AccountVk()
     while True:
         words = words_for_search
@@ -43,8 +44,8 @@ def main():
         if message:
           wm = account.filter(words,message)
           if wm:
-              for i in range(3):
-                  account.send_message_to_id(myID,"чекни беседу")
+                account.send_message_to_id(myID,"чекни беседу")
+                account.send_message_to_id(myID,f"{message}")
 
   
 if __name__ == "__main__":
