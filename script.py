@@ -1,5 +1,5 @@
 import vk_api
-from config import access_token,myID, words_for_search
+from config import access_token,ID, words_for_search
 
 """Получение ACCESS происходило не через основной вк апи, а через сторонний сервис.
 Поэтому есть смысл использовать не настойщий аккаунт"""
@@ -31,8 +31,9 @@ class AccountVk():
           else:
               continue
 
-    def send_message_to_id(self,user_id,text):
-        self.session.method("messages.send",{"user_id":user_id,"random_id":"0","message":text})
+    def send_message_to_id(self,users_id:list,text):
+        for user in users_id:
+            self.session.method("messages.send",{"user_id":user,"random_id":"0","message":text})
 
 
 def main():
@@ -44,8 +45,8 @@ def main():
         if message:
           wm = account.filter(words,message)
           if wm:
-                account.send_message_to_id(myID,"чекни беседу")
-                account.send_message_to_id(myID,f"{message}")
+                account.send_message_to_id(ID,"чекни беседу")
+                account.send_message_to_id(ID,f"{message}")
 
   
 if __name__ == "__main__":
