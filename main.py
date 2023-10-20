@@ -5,8 +5,8 @@ from config import access_token,ID, words_for_search
 
 
 def main():
-    print("Работыает...")
     account = AccountVk(access_token)
+    account.send_message_to_id(ID,"Работыает...")
     words = words_for_search
     while True:
         message = account.get_latest_message()

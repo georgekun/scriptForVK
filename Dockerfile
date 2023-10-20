@@ -13,6 +13,5 @@ COPY . /app/
 # Установите зависимости проекта
 RUN pip install -r requirements.txt
 
-# Запустите Django приложение и celery одновременно
-RUN  echo "Сборка завершен"
+RUN  echo "Сборка завершен" >> logs.txt
 CMD ["python3", "/app/main.py"]

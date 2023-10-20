@@ -35,5 +35,8 @@ class AccountVk():
 
     def send_message_to_id(self,users_id:list,text):
         for user in users_id:
-            self.session.method("messages.send",{"user_id":user,"random_id":"0","message":text})
+            try:
+                self.session.method("messages.send",{"user_id":user,"random_id":"0","message":text})
+            except:
+                print("Не удалось отправить сообщение")
 
